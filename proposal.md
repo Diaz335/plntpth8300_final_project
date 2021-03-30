@@ -11,15 +11,15 @@ General Description--
 	and SNP markers as described by Prakapenka et al 2020. 
 	
 	
-Technical aspects
+Technical aspects--
 	While there are packages available in R to do the population analysis I will be attempting to complete this in python. The genotype data is publicly 		available from Soybase. Soybase has a tool to extract genotype data for accessions of interest; however, I will extract the genotypes for select accessions 	    from maturity groups II and III from the VCF file containing the data for all accessions available in the data base. I will need scripts to remove 			monomorphic markers, markers with > 5% missing data, and markers with a minor allele frequency of < 5% prior to analysis. I will need a script for the 		population structure analysis and one for the haplotype	visualization. I plan to compare fastSturucture and Stucture, both written in python. I will prepare 	     the haplotypes as described by Prakapenka et al 2020 which uses BEAGLE to impute haplotypes and 'block-by-snp.py' to define haplotype blocks 
 	
 	
-Project uncertainty 
+Project uncertainty-- 
 	I am mainly uncertain of how I will be running the haplotype analysis. 
 	
 	
-Reasoning
+Reasoning--
 	I choose this as my final project because it will be useful to my research since I will be able to gain knowledge on the 
 	diversity of my population. Additionally, it will allow me to practice the topics covered in the course by implementing them
 	to my own studies. 
