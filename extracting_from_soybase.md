@@ -47,7 +47,7 @@ sed -E 's/\s*$//' file.txt > file.txt
 ./bcftools view -S ^file.txt soysnp50k_wm82.a2_41317.vcf.gz > filtered.vcf
 
 
-##NEED to convert vfc to bed file 
+###NEED to convert vfc to bed file 
 #tried using bedops with no luck
 #conda create -n bedops-env bedops
 #source activate bedops-env
