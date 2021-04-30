@@ -4,7 +4,6 @@
 	quantitative disease resistant loci using the population. The GWAS will be developed in greenhouse and field environments. Due
 	to complexities of field studies for quantitative disease resistance to Phytopthora sojae I will be resticted to the number 
 	of lines in my study. Ideally GWAS would be developed using a large diverse population. Therefore, in an attempt to maximize 
-	GWAS potential with minimal population sizes and to fulfil the class requirements, I propose to do a population structure 
 	GWAS potential with minimal population sizes and to fulfil the class requirements, I propose to do a population structure
 	analysis of the PIs using a 50K SNP BeadChip(soybean). Furthermore I plan to prepare haplotype genotypes by converting the format of the SNP genotypic file into the format for BEAGLE which I will use to produce imputed haplotypes which will then be divided into haplotype blocks and haplotype genotypes will be defined withen each block. These files will be prepared in order to run a pipeline for genomic prediction and variance component estimation using haplotypes and SNP markers as described by Prakapenka et al 2020. 
 # Technical aspects
