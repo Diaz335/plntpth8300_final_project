@@ -62,3 +62,10 @@
 ## Another attempt at installing fastStructure #unsuccessful
 #module install fastStructure
 #module load fastStructure   
+
+# Matplot
+#python3 -m pip install matplotlib
+
+#conda install -c conda-forge matplotlib
+
+#conda install matplotlib
