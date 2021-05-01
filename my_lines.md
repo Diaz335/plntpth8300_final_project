@@ -1122,12 +1122,15 @@ python structure.py -K 14 --input=filtered --output=test/testoutput_logistic --f
 python structure.py -K 15 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
 python structure.py -K 16 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
 
+## run script
 
 sbatch faststructure_logistic.sh 
+squeue -u $USER -l
+
 # fastStructure to choose model complexity (model components that explain structure)
 python chooseK.py --input=test/testoutput_simple
 
-## after format correction(k=14)
+## after format correction(resulted in k=14)
 python chooseK.py --input=test/testoutput_simple
 
 
