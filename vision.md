@@ -1,26 +1,15 @@
-#installing fastStructure 
-mkdir ~/proj
-cd ~/proj
-git clone https://github.com/rajanil/fastStructure
-#retrieve latest code updates
-cd ~/proj/fastStructure
-git fetch
-git merge origin/master
 
-#build python extensions
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export CFLAGS="-I/usr/local/include"
-export LDFLAGS="-L/usr/local/lib"
+# beagle installation 
+module load python/3.6-conda5.2
+conda create -n beagle -c bioconda beagle
+conda install -c bioconda beagle 
+conda install -c bioconda/label/cf201901 beagle
+source activate beagle
+beagle
+## attempted beagle #"Unable to access jarfile /programs/beagle/beagle.jar"
+java -Xmx10g -jar /programs/beagle/beagle.jar gt=filtered.vcf nthreads=10 iterations=12 out=imputed_file
+#Unable to access jarfile /programs/beagle/beagle.jar
 
-#set these environment variables.
-source ~/.bashrc 
-
-#build library extensions
-cd ~/proj/fastStructure/vars
-python setup.py build_ext --inplace
-
-#to choose model complexity(model components that explain structure)
-python chooseK.py --input=test/testoutput_simple
-
-#inferring population structure--? will be given in step above
-python structure.py -K ? --input=test/testdata --output=test/testoutput_simple
+## run haplotype Genomic selection pipeline
+https://animalgene.umn.edu/sites/animalgene.umn.edu/files/gvchap_linux_0.zip
+unzip gvchap_linux_0.zip
