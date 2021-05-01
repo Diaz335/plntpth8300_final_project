@@ -1080,11 +1080,64 @@ python structure.py -K 15 --input=filtered --output=test1/testoutput_simple --fu
 python structure.py -K 16 --input=filtered --output=test1/testoutput_simple --full --seed=100
 
 
+
 ## Run the script
 sbatch faststructure.sh
 ##checking on progress
 squeue -u $USER -l
 
+# fastStructure logistic
 
+nano faststructure_logistic.sh 
+
+## write following in script 
+#!/bin/bash
+#SBATCH --account=PAS1855
+#SBATCH --time=22:30:00
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+
+set -u -e -o pipefail
+
+module load  python/2.7-conda5.2
+
+source activate faststructure-dep
+module unload python/2.7-conda5.2
+
+python structure.py -K 1 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 2 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 3 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 4 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 5 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 6 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 7 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 8 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 9 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 10 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 11 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 12 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 13 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 14 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 15 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+python structure.py -K 16 --input=filtered --output=test/testoutput_logistic --full --seed=100 --prior=logistic
+
+
+sbatch faststructure_logistic.sh 
 # fastStructure to choose model complexity (model components that explain structure)
 python chooseK.py --input=test/testoutput_simple
+
+## after format correction(k=14)
+python chooseK.py --input=test/testoutput_simple
+
+
+# Distruct.py to make plots-visualize results
+#matplot 
+echo "backend: Agg" > ~/.config/matplotlib/matplotlibrc
+
+## run for K=3
+python distruct.py -K 3 --input=test/testoutput_simple --output=test/testoutput_simple_distruct.svg
+
+## run for k=14 (correct one)
+
+python distruct.py -K 14 --input=test/testoutput_simple --output=test/testoutput_simple_distruct.svg
